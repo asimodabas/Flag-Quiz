@@ -23,12 +23,12 @@
         app:layout_constraintVertical_bias="0.138" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonBasla"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginBottom="84dp"
         android:backgroundTint="#000000"
-        android:text="Button"
+        android:text="başla"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
