@@ -1,8 +1,8 @@
 package com.asimodabas.flag_quiz_app
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_quiz.*
 
 class QuizActivity : AppCompatActivity() {
@@ -26,16 +26,11 @@ class QuizActivity : AppCompatActivity() {
 
         sorular = Bayraklardao().rasgele5BayrakGetir(vt)
 
-        soruYukle() //Bayrak yüklenemiyor
-        //Bayrak yüklenemiyor
-        //Bayrak yüklenemiyor
-        //Bayrak yüklenemiyor
-        //Bayrak yüklenemiyor
-        //Bayrak yüklenemiyor
-
+        soruYukle()
 
         buttonA.setOnClickListener {
 
+            soruSayacKontrol()
         }
     }
 
@@ -45,7 +40,9 @@ class QuizActivity : AppCompatActivity() {
 
         dogruSoru = sorular.get(soruSayac)
 
-        imageViewBayrak.setImageResource(resources.getIdentifier(dogruSoru.bayrak_resim, "drawable", packageName
+        imageViewBayrak.setImageResource(
+            resources.getIdentifier(
+                dogruSoru.bayrak_resim, "drawable", packageName
             )
         )
     }
