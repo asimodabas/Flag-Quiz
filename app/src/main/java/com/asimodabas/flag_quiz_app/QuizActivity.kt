@@ -22,26 +22,43 @@ class QuizActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz)
 
-        vt= VeritabaniYardimcisi(this)
+        vt = VeritabaniYardimcisi(this)
 
         sorular = Bayraklardao().rasgele5BayrakGetir(vt)
-        soruYukle()
+
+        soruYukle() //Bayrak yüklenemiyor
+        //Bayrak yüklenemiyor
+        //Bayrak yüklenemiyor
+        //Bayrak yüklenemiyor
+        //Bayrak yüklenemiyor
+        //Bayrak yüklenemiyor
 
 
         buttonA.setOnClickListener {
+
+        }
+    }
+
+    fun soruYukle() {
+
+        textVieSoruSayi.text = "${soruSayac + 1}.Soru"
+
+        dogruSoru = sorular.get(soruSayac)
+
+        imageViewBayrak.setImageResource(resources.getIdentifier(dogruSoru.bayrak_resim, "drawable", packageName
+            )
+        )
+    }
+
+    fun soruSayacKontrol() {
+
+        soruSayac++
+        if (soruSayac != 5) {
+            soruYukle()
+        } else {
             startActivity(Intent(this@QuizActivity, ResultActivity::class.java))
             finish()
 
         }
     }
-
-    fun soruYukle(){
-
-        textVieSoruSayi.text = "${soruSayac+1}.Soru"
-
-        dogruSoru=sorular.get(soruSayac)
- imageViewBayrak.setImageResource(resources.getIdentifier(dogruSoru.bayrak_resim,"drawable",packageName))
-
-    }
-
 }
