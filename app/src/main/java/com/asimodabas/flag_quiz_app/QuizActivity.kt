@@ -45,6 +45,19 @@ class QuizActivity : AppCompatActivity() {
                 dogruSoru.bayrak_resim, "drawable", packageName
             )
         )
+
+        yanlisSecenekler = Bayraklardao().rasgele3YanlisSecenekGetir(vt, dogruSoru.bayrak_id)
+        tumSecenekler = HashSet()
+        tumSecenekler.add(dogruSoru)
+        tumSecenekler.add(yanlisSecenekler.get(0))
+        tumSecenekler.add(yanlisSecenekler.get(1))
+        tumSecenekler.add(yanlisSecenekler.get(2))
+
+        buttonA.text = tumSecenekler.elementAt(0).bayrak_ad
+        buttonB.text = tumSecenekler.elementAt(1).bayrak_ad
+        buttonC.text = tumSecenekler.elementAt(2).bayrak_ad
+        buttonD.text = tumSecenekler.elementAt(3).bayrak_ad
+
     }
 
     fun soruSayacKontrol() {
