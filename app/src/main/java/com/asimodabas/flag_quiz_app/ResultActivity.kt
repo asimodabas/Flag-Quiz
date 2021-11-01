@@ -10,6 +10,7 @@ class ResultActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result)
 
+
         buttonTekrar.setOnClickListener {
 
             startActivity(Intent(this@ResultActivity,QuizActivity::class.java))

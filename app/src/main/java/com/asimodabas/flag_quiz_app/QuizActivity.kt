@@ -2,6 +2,7 @@ package com.asimodabas.flag_quiz_app
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_quiz.*
 
@@ -29,7 +30,19 @@ class QuizActivity : AppCompatActivity() {
         soruYukle()
 
         buttonA.setOnClickListener {
-
+            dogruKontrol(buttonA)
+            soruSayacKontrol()
+        }
+        buttonB.setOnClickListener {
+            dogruKontrol(buttonB)
+            soruSayacKontrol()
+        }
+        buttonC.setOnClickListener {
+            dogruKontrol(buttonC)
+            soruSayacKontrol()
+        }
+        buttonD.setOnClickListener {
+            dogruKontrol(buttonD)
             soruSayacKontrol()
         }
     }
@@ -66,9 +79,28 @@ class QuizActivity : AppCompatActivity() {
         if (soruSayac != 5) {
             soruYukle()
         } else {
-            startActivity(Intent(this@QuizActivity, ResultActivity::class.java))
+            val intent=Intent(this@QuizActivity, ResultActivity::class.java)
+           intent.putExtra("dogruSayac",dogruSayac)
+            startActivity(intent)
             finish()
 
         }
+    }
+
+    fun dogruKontrol(button: Button) {
+
+        val buttınYazi = button.text.toString()
+        val dogruCevap = dogruSoru.bayrak_ad
+
+        if (buttınYazi == dogruCevap) {
+
+            dogruSayac++
+        } else {
+            yanlisSayac++
+        }
+
+        textViewDogru.text = "Doğru:$dogruSayac"
+        textViewYanlis.text = "Yanlış:${yanlisSayac}"
+
     }
 }
