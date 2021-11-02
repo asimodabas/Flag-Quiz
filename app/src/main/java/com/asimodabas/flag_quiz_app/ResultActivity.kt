@@ -12,7 +12,7 @@ class ResultActivity : AppCompatActivity() {
 
         val dogruSayac=intent.getIntExtra("dogruSayac",0)
         textViewSonuc.text="$dogruSayac DOĞRU ${5-dogruSayac} YANLIŞ"
-        textViewYuzdeSonuc.text="%${(dogruSayac*100 )/5 }BAŞARI"
+        textViewYuzdeSonuc.text="%${(dogruSayac*100 )/5} BAŞARI"
 
         buttonTekrar.setOnClickListener {
 
